@@ -1,0 +1,26 @@
+{
+  "name": "ScrapeIn",
+  "description": "CRM software with Linkedin integration!",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "icons": {
+    "120": "icon.png",
+    "240": "icon3.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ScrapeIn",
+    "default_icon": "icon.png"
+  },
+  "permissions": ["scripting", "storage", "tabs", "activeTab", "downloads"],
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/*", "https://www.linkedin.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ]
+}
