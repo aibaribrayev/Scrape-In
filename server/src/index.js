@@ -212,7 +212,16 @@ app.use(cors());
 let links = [{ url: 'linkedin.com' }];
 
 app.get('/comments', (req, res) => {
-  res.status(200).json(links);
+  try {
+    res.download('././RESULTS.CSV', file, function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+      }
+    });
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 app.put('/comments', (req, res) => {
